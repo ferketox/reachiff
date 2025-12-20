@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reachiff | Professional Marketing Solutions</title>
+    <meta name="description" content="Reachiff - We run effective Meta ads and digital marketing campaigns to help businesses grow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #1a6dcc;
+            --dark-blue: #0a4a8a;
+            --light-blue: #e6f2ff;
+            --primary-gray: #4a5568;
+            --light-gray: #f7fafc;
+            --dark-gray: #2d3748;
+            --accent-green: #38b2ac;
+            --light-green: #e6fffa;
+            --white: #ffffff;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--primary-blue);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: var(--accent-green);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary-gray);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .nav-links a.nav-cta {
+            color: var(--white);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .nav-links a.nav-cta:hover {
+            color: var(--white);
+        }
+
+        
+        .nav-cta {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 10px 24px;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+        
+        .nav-cta:hover {
+            background-color: var(--dark-blue);
+            color: var(--white);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--primary-blue);
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 160px 0 100px;
+            background: linear-gradient(135deg, var(--light-blue) 0%, var(--light-green) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .hero-text {
+            flex: 1;
+            max-width: 600px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--dark-gray);
+        }
+        
+        .hero h1 span {
+            color: var(--primary-blue);
+        }
+        
+        .hero p {
+            font-size: 18px;
+            color: var(--primary-gray);
+            margin-bottom: 30px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-green);
+            color: var(--white);
+            padding: 14px 32px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+        
+        .cta-button:hover {
+            background-color: var(--primary-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 20px -3px rgba(0, 0, 0, 0.2);
+        }
+        
+        .hero-visual {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            height: 400px;
+        }
+        
+        /* 3D Elements */
+        .cube-3d {
+            width: 180px;
+            height: 180px;
+            position: relative;
+            transform-style: preserve-3d;
+            transform: rotateX(20deg) rotateY(20deg);
+            animation: rotateCube 20s infinite linear;
+        }
+        
+        .cube-face {
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+            opacity: 0.9;
+        }
+        
+        .front { transform: translateZ(90px); }
+        .back { transform: rotateY(180deg) translateZ(90px); }
+        .right { transform: rotateY(90deg) translateZ(90px); }
+        .left { transform: rotateY(-90deg) translateZ(90px); }
+        .top { transform: rotateX(90deg) translateZ(90px); }
+        .bottom { transform: rotateX(-90deg) translateZ(90px); }
+        
+        @keyframes rotateCube {
+            0% { transform: rotateX(20deg) rotateY(0); }
+            100% { transform: rotateX(20deg) rotateY(360deg); }
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background-color: var(--light-gray);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--dark-gray);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: var(--primary-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 40px 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-green));
+            z-index: 2;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            font-size: 40px;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--dark-gray);
+        }
+        
+        .service-card p {
+            color: var(--primary-gray);
+            margin-bottom: 20px;
+        }
+        
+        .highlight-service {
+            background-color: var(--light-blue);
+            border: 2px solid var(--primary-blue);
+        }
+        
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--dark-gray);
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            color: var(--primary-gray);
+            margin-bottom: 20px;
+        }
+        
+        .about-stats {
+            display: flex;
+            margin-top: 30px;
+        }
+        
+        .stat {
+            margin-right: 40px;
+        }
+        
+        .stat-number {
+            font-size: 40px;
+            font-weight: 800;
+            color: var(--primary-blue);
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: var(--primary-gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .about-visual {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .pyramid-3d {
+            width: 250px;
+            height: 250px;
+            position: relative;
+            transform-style: preserve-3d;
+            transform: rotateX(20deg) rotateY(20deg);
+            animation: rotatePyramid 25s infinite linear;
+        }
+        
+        .pyramid-side {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 125px solid transparent;
+            border-right: 125px solid transparent;
+            border-bottom: 200px solid;
+            opacity: 0.8;
+        }
+        
+        .front-side { border-bottom-color: var(--primary-blue); transform: translateZ(70px); }
+        .right-side { border-bottom-color: var(--accent-green); transform: rotateY(90deg) translateZ(70px); }
+        .left-side { border-bottom-color: var(--dark-blue); transform: rotateY(-90deg) translateZ(70px); }
+        .back-side { border-bottom-color: var(--primary-gray); transform: rotateY(180deg) translateZ(70px); }
+        
+        @keyframes rotatePyramid {
+            0% { transform: rotateX(20deg) rotateY(0); }
+            100% { transform: rotateX(20deg) rotateY(360deg); }
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+            background-color: var(--light-green);
+        }
+        
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonial-slide {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            display: none;
+        }
+        
+        .testimonial-slide.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .testimonial-content {
+            font-size: 18px;
+            font-style: italic;
+            margin-bottom: 30px;
+            color: var(--dark-gray);
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 24px;
+            margin-right: 15px;
+        }
+        
+        .author-info h4 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--dark-gray);
+        }
+        
+        .author-info p {
+            color: var(--primary-gray);
+            font-size: 14px;
+        }
+        
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--primary-gray);
+            margin: 0 8px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .slider-dot.active {
+            background-color: var(--primary-blue);
+            transform: scale(1.2);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+        
+        .cta-button-light {
+            background-color: var(--white);
+            color: var(--primary-blue);
+            padding: 16px 40px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            transition: var(--transition);
+            display: inline-block;
+        }
+        
+        .cta-button-light:hover {
+            background-color: var(--light-green);
+            color: var(--dark-gray);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 20px -3px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-gray);
+            color: var(--white);
+            padding: 70px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--white);
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo span {
+            color: var(--accent-green);
+        }
+        
+        .footer-about p {
+            color: #a0aec0;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links h3 {
+            font-size: 20px;
+            margin-bottom: 25px;
+            color: var(--white);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #a0aec0;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-green);
+        }
+        
+        .footer-contact h3 {
+            font-size: 20px;
+            margin-bottom: 25px;
+            color: var(--white);
+        }
+        
+        .contact-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            color: #a0aec0;
+        }
+        
+        .contact-info i {
+            margin-right: 15px;
+            color: var(--accent-green);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #4a5568;
+            color: #a0aec0;
+            font-size: 14px;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 28px;
+            }
+            
+            .hero-text {
+                margin-bottom: 60px;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-text {
+                margin-bottom: 50px;
+                width: 90%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            }
+
+            .hero-text h1 {
+                font-size: 28px;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .section-title h2 {
+                font-size: 30px;
+            }
+
+            .about-text h2 {
+                font-size: 1.5rem;
+            }
+
+            .about-stats {
+                width: 90%;
+                margin-right: 50px;
+            }
+            
+            .stat-number {
+                font-size: 28px;
+            }
+
+            .stat-label {
+                font-size: 0.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Reachi<span>ff</span>.</a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact" class="nav-cta">Get Started</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Amplify Your Business with <span>Powerful Meta Ads</span></h1>
+                    <p>At Reachiff, we specialize in creating and managing high-converting Meta advertising campaigns that drive real results and maximize ROI for businesses of all sizes.</p>
+                    <a href="#contact" class="cta-button">Start Your Campaign</a>
+                </div>
+                <div class="hero-visual">
+                    <div class="cube-3d">
+                        <div class="cube-face front">Reachiff</div>
+                        <div class="cube-face back">Meta Ads</div>
+                        <div class="cube-face right">Growth</div>
+                        <div class="cube-face left">ROI</div>
+                        <div class="cube-face top">Success</div>
+                        <div class="cube-face bottom">Results</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Marketing Services</h2>
+                <p>We provide comprehensive digital marketing solutions with a focus on Meta advertising to help your business reach its target audience and drive conversions.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card highlight-service">
+                    <div class="service-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3>Meta Ads Management</h3>
+                    <p>We run effective Meta ads (Facebook & Instagram) for businesses. Our team creates, optimizes, and manages campaigns that target your ideal customers and maximize ad spend efficiency.</p>
+                    <a href="#contact" class="cta-button">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Performance Analytics</h3>
+                    <p>Comprehensive tracking and reporting to measure campaign success, optimize performance, and provide actionable insights for continuous improvement.</p>
+                    <a href="#contact" class="cta-button">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Creative Design</h3>
+                    <p>Eye-catching ad creatives and compelling copy that captures attention and drives engagement across Meta's platforms and beyond.</p>
+                    <a href="#contact" class="cta-button">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Why Choose Reachiff for Your Meta Advertising?</h2>
+                    <p>With over 7 years of experience in digital marketing, we've mastered the art of Meta advertising. We understand the algorithms, targeting options, and creative strategies that deliver real business growth.</p>
+                    <p>Our data-driven approach ensures that every dollar of your ad spend works harder, reaching the right people at the right time with the right message.</p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <div class="stat-number">+89%</div>
+                            <div class="stat-label">Client ROI Increase</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">250+</div>
+                            <div class="stat-label">Campaigns Managed</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">98%</div>
+                            <div class="stat-label">Client Satisfaction</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="pyramid-3d">
+                        <div class="pyramid-side front-side"></div>
+                        <div class="pyramid-side right-side"></div>
+                        <div class="pyramid-side left-side"></div>
+                        <div class="pyramid-side back-side"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Clients Say</h2>
+                <p>Don't just take our word for it - hear from businesses that have grown with our Meta advertising strategies.</p>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial-slide active" id="slide1">
+                    <div class="testimonial-content">
+                        "Reachiff transformed our Meta ad strategy completely. Our customer acquisition cost dropped by 40% while our conversions increased by 120% in just 3 months. Their expertise in running ads for businesses is unmatched."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SJ</div>
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>CEO, TechGear Solutions</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-slide" id="slide2">
+                    <div class="testimonial-content">
+                        "We were struggling with our Facebook and Instagram ads until we partnered with Reachiff. Their team not only runs our ads but also provides insightful analytics that help us understand our customers better. Highly recommended!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MR</div>
+                        <div class="author-info">
+                            <h4>Michael Rodriguez</h4>
+                            <p>Marketing Director, Bloom Boutique</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-slide" id="slide3">
+                    <div class="testimonial-content">
+                        "The ROI from our Meta ads has been phenomenal since Reachiff took over. They truly understand how to run effective campaigns that reach the right audience. Our business has seen a 65% increase in online sales."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AK</div>
+                        <div class="author-info">
+                            <h4>Amanda Kim</h4>
+                            <p>Founder, Wellness Essentials</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-controls">
+                    <div class="slider-dot active" data-slide="0"></div>
+                    <div class="slider-dot" data-slide="1"></div>
+                    <div class="slider-dot" data-slide="2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <h2>Ready to Transform Your Meta Advertising?</h2>
+            <p>Schedule a free consultation with our Meta ads specialists and discover how we can help you reach more customers, increase conversions, and maximize your advertising ROI.</p>
+            <a href="#contact" class="cta-button-light">Start Your Free Consultation</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <a href="#" class="footer-logo">Reachi<span>ff</span></a>
+                    <p>We run effective Meta ads for businesses. Our data-driven approach and creative strategies help businesses reach their target audience and achieve measurable growth.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <!--<div class="contact-info">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>123 Marketing Ave, Suite 400<br>San Francisco, CA 94107</p>
+                    </div>-->
+                    <div class="contact-info">
+                        <i class="fas fa-phone"></i>
+                        <p>(xxx) xxx-xxxx</p>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-envelope"></i>
+                        <p>reachiff@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Reachiff. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Testimonial Slider
+        const slides = document.querySelectorAll('.testimonial-slide');
+        const dots = document.querySelectorAll('.slider-dot');
+        let currentSlide = 0;
+        
+        function showSlide(n) {
+            // Hide all slides
+            slides.forEach(slide => {
+                slide.classList.remove('active');
+            });
+            
+            // Remove active class from all dots
+            dots.forEach(dot => {
+                dot.classList.remove('active');
+            });
+            
+            // Show the selected slide
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+        
+        // Add click events to dots
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showSlide(index);
+            });
+        });
+        
+        // Auto-rotate slides every 5 seconds
+        setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, 5000);
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add scroll effect to header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)';
+            }
+        });
+    </script>
+</body>
+</html>
